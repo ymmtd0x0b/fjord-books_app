@@ -221,8 +221,8 @@ ja:
     confirm: '本当に実行しますか？'
     success:
       create: "新たな本が追加されました."
-      destroy: "正常に削除されました."
-      update: "正常に更新されました."
+      destroy: "削除されました."
+      update: "更新されました."
   page_title:
     Books: "本の一覧"
     New_Book: "新規追加"
