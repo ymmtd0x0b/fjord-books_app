@@ -13,3 +13,19 @@
  *= require_tree .
  *= require_self
  */
+
+ .paginate_main {
+  margin-top: 20px;
+ }
+
+ .paginate_sub {
+   display: flex
+ }
+
+ .paginate_sub p {
+   font-size: 10px;
+ }
+
+ .paginate_sub p:nth-child(2) {
+  margin-left: 10px;
+}
