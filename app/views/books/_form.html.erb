@@ -1,7 +1,8 @@
 <%= form_with(model: book, local: true) do |form| %>
   <% if book.errors.any? %>
     <div id="error_explanation">
-      <h2><%= (book.errors.count >= 2) ? t(:other, scope: %i[errors messages template header]) : t(:one, scope: %i[errors messages template header]) %></h2>
+      <% one_or_other = (book.errors.count >= 2) ? 'other' : 'one' %>
+      <h2><%= t "errors.messages.template.header.#{one_or_other}" %></h2>
 
       <ul>
         <% book.errors.full_messages.each do |message| %>

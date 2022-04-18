@@ -219,19 +219,22 @@ en:
       long: "%B %d, %Y %H:%M"
       short: "%d %b %H:%M"
     pm: pm
-  operation:
-    show: "Show"
-    edit: "Edit"
-    destroy: "Destroy"
-    new_book: "New Book"
-    back: "Back"
   notification:
     confirm: "Are you sure?"
     success:
       create: "Book was successfully created."
       destroy: "Book was successfully destroyed."
       update: "Book was successfully updated."
-  page_title:
-    Books: "Books"
-    New_Book: "New Book"
-    Editing_Book: "Editing Book"
+  books:
+    index:
+      books: "Books"
+    new:
+      new_book: "New Book"
+    edit:
+      editing_book: "Editing Book"
+  button:
+    show: "Show"
+    edit: "Edit"
+    destroy: "Destroy"
+    new_book: "New Book"
+    back: "Back"

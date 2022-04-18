@@ -1,6 +1,6 @@
-<h1><%= t :Editing_Book, scope: [:page_title] %></h1>
+<h1><%= t '.edit' %></h1>
 
 <%= render 'form', book: @book %>
 
-<%= link_to t(:Show, scope: [:operation]), @book %> |
-<%= link_to t(:Back, scope: [:operation]), books_path %>
+<%= link_to t('button.show'), @book %> |
+<%= link_to t('button.back'), books_path %>
