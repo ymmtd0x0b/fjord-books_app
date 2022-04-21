@@ -2,5 +2,5 @@
 
 class Book < ApplicationRecord
   mount_uploader :picture, PictureUploader
-  paginates_per 1
+  paginates_per 25
 end
