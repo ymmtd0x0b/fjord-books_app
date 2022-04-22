@@ -25,4 +25,4 @@ ja:
           one: "表示中 <b>1</b> %{entry_name}"
           other: "表示中 <b>all %{count}</b> %{entry_name}"
       more_pages:
-        display_entries: "表示中 %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> / <b>%{total}</b> 件中"
+        display_entries: "表示中 <b>%{first}&nbsp;-&nbsp;%{last}</b> / <b>%{total}</b> 件中"
