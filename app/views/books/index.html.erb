@@ -31,3 +31,11 @@
 <br>
 
 <%= link_to t('views.common.new'), new_book_path %>
+
+<div class="paginate_main">
+  <%= paginate @books %>
+</div>
+
+<div class="paginate_sub">
+  <p><%= page_entries_info @books %></p>
+</div>
