@@ -1,11 +1,13 @@
 <p>Name</p>
 <p><%= @user.name %></p>
 
-<p>Email</p>
-<p><%= @user.email %></p>
+<% if @user.id == current_user.id %>
+  <p>Email</p>
+  <p><%= @user.email %></p>
 
-<p>Postal Code</p>
-<p><%= @user.postal_code %></p>
+  <p>Postal Code</p>
+  <p><%= @user.postal_code %></p>
+<% end %>
 
 <p>Self Introduction</p>
 <p><%= @user.self_introduction %></p>
