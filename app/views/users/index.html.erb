@@ -3,3 +3,11 @@
     <li><%= link_to user.name, user %></li>
   <% end %>
 </ul>
+
+<div class="paginate_main">
+  <%= paginate @users %>
+</div>
+
+<div class="paginate_sub">
+  <%= page_entries_info @users %>
+</div>
