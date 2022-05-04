@@ -1,8 +1,13 @@
-<ul>
-  <% @users.each do |user| %>
-    <li><%= link_to user.name, user %></li>
-  <% end %>
-</ul>
+<table>
+  <tbody>
+    <% @users.each do |user| %>
+    <tr>
+      <td><%= user.name %></td>
+      <td><%= link_to t('views.common.show'), user %> </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <div class="paginate_main">
   <%= paginate @users %>

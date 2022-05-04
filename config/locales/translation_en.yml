@@ -2,6 +2,7 @@ en:
   activerecord:
     models:
       book: Book  #g
+      user: User
 
     attributes:
       book:
@@ -9,8 +10,29 @@ en:
         memo: Memo  #g
         picture: Picture  #g
         title: Title  #g
+      user:
+        name: Name
+        email: Email
+        postal_code: 'Postal Code'
+        prefecture: Prefecture
+        city: City
+        street: Street
+        building: Building
+        self_introduction: 'Self Introduction'
 
   views:
+    common:
+      index:
+        books: 'Books Index'
+        users: 'Users Index'
+      profile:
+        show: 'Show profile'
+        edit: 'Edit profile'
+      login: 'Login'
+      logout: 'Logout'
+      sign_up: 'Sign up'
+      logged_html: "Logged in as <strong>%{user}</strong>."
+      address: Address
     pagination:
       first: "&laquo; First"
       last: "Last &raquo;"
@@ -26,3 +48,4 @@ en:
           other: "Displaying <b>all %{count}</b> %{entry_name}"
       more_pages:
         display_entries: "Displaying <b>%{first}&nbsp;-&nbsp;%{last}</b> of <b>%{total}</b> in total"
+

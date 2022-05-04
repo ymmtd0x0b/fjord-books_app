@@ -37,9 +37,9 @@ ActiveRecord::Schema.define(version: 2022_05_03_232432) do
     t.string "postal_code"
     t.text "self_introduction"
     t.string "prefecture"
-    t.string "address_city"
-    t.string "address_street"
-    t.string "address_building"
+    t.string "city"
+    t.string "street"
+    t.string "building"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

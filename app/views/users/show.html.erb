@@ -1,25 +1,16 @@
-<p>Name</p>
+<p><%= t User.human_attribute_name('name') %></p>
 <p><%= @user.name %></p>
 
 <% if @user.id == current_user.id %>
-  <p>Email</p>
+  <p><%= t User.human_attribute_name('email') %></p>
   <p><%= @user.email %></p>
 
-  <p>Postal Code</p>
+  <p><%= t User.human_attribute_name('postal_code') %></p>
   <p><%= @user.postal_code %></p>
 
-  <p>Prefecture</p>
-  <p><%= @user.prefecture %></p>
-
-  <p>City</p>
-  <p><%= @user.address_city %></p>
-
-  <p>Street</p>
-  <p><%= @user.address_street %></p>
-
-  <p>Building</p>
-  <p><%= @user.address_building %></p>
+  <p><%= t 'views.common.address' %></p>
+  <p><%= "#{@user.prefecture} #{@user.city} #{@user.street} #{@user.building}" %></p>
 <% end %>
 
-<p>Self Introduction</p>
+<p><%= t User.human_attribute_name('self_introduction') %></p>
 <p><%= @user.self_introduction %></p>

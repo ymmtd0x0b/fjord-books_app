@@ -19,19 +19,20 @@
       <% end %>
       <div>
         <% if user_signed_in? %>
-        <%= link_to 'Books Index', root_path  %> | 
-        <%= link_to 'Users Index', users_path %>
+        <%= link_to t('views.common.index.books'), root_path  %> | 
+        <%= link_to t('views.common.index.users'), users_path %>
         <% end %>
       </div>
       <div>
         <p>
         <% if user_signed_in? %>
-        Logged in as <strong><%= current_user.name %></strong>.
-        <%= link_to 'Edit profile', edit_user_registration_path %> |
-        <%= link_to 'Logout', destroy_user_session_path, method: :delete  %>
+        <%= t 'views.common.logged_html', user: current_user.name %>
+        <%= link_to t('views.common.profile.show'), current_user %> |
+        <%= link_to t('views.common.profile.edit'), edit_user_registration_path %> |
+        <%= link_to t('views.common.logout'), destroy_user_session_path, method: :delete  %>
         <% else %>
-        <%= link_to 'Sign up', new_user_registration_path  %> |
-        <%= link_to 'Login', new_user_session_path %>
+        <%= link_to t('views.common.sign_up'), new_user_registration_path  %> |
+        <%= link_to t('views.common.login'), new_user_session_path %>
         <% end %>
         </p>
       </div>
