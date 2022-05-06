@@ -26,10 +26,10 @@ ja:
         books: '本一覧'
         users: 'ユーザー一覧'
       profile:
-        show: 'プロフィール詳細'
+        show: 'プロフィール'
         edit: 'プロフィール編集'
-      login: 'ログイン'
-      logout: 'ログアウト'
+      log_in: 'ログイン'
+      log_out: 'ログアウト'
       sign_up: 'サインアップ'
       logged_html: "<strong>%{user}</strong> としてログイン中 "
       address: 住所

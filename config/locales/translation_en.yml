@@ -28,8 +28,8 @@ en:
       profile:
         show: 'Show profile'
         edit: 'Edit profile'
-      login: 'Login'
-      logout: 'Logout'
+      log_in: 'Login'
+      log_out: 'Logout'
       sign_up: 'Sign up'
       logged_html: "Logged in as <strong>%{user}</strong>."
       address: Address

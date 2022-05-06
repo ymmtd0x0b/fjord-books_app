@@ -11,11 +11,8 @@
 
   <body>
     <header>
-      <% if notice %>
-      <p><%= notice %></p>
-      <% end %>
-      <% if alert %>
-      <p><%= alert %></p>
+      <% flash.each do |message_type, message| %>
+        <%= content_tag :div, message, class: message_type %>
       <% end %>
       <div>
         <% if user_signed_in? %>
@@ -29,10 +26,10 @@
         <%= t 'views.common.logged_html', user: current_user.name %>
         <%= link_to t('views.common.profile.show'), current_user %> |
         <%= link_to t('views.common.profile.edit'), edit_user_registration_path %> |
-        <%= link_to t('views.common.logout'), destroy_user_session_path, method: :delete  %>
+        <%= link_to t('views.common.log_out'), destroy_user_session_path, method: :delete  %>
         <% else %>
         <%= link_to t('views.common.sign_up'), new_user_registration_path  %> |
-        <%= link_to t('views.common.login'), new_user_session_path %>
+        <%= link_to t('views.common.log_in'), new_user_session_path %>
         <% end %>
         </p>
       </div>
