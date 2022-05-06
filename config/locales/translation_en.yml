@@ -22,12 +22,13 @@ en:
 
   views:
     common:
+      contents_link: 'Contents Link'
       index:
         books: 'Books Index'
         users: 'Users Index'
-      profile:
-        show: 'Show profile'
-        edit: 'Edit profile'
+      user:
+        show: 'Show User'
+        edit: 'Edit User'
       log_in: 'Login'
       log_out: 'Logout'
       sign_up: 'Sign up'

@@ -22,12 +22,13 @@ ja:
 
   views:
     common:
+      contents_link: 'コンテンツリンク'
       index:
-        books: '本一覧'
-        users: 'ユーザー一覧'
-      profile:
-        show: 'プロフィール'
-        edit: 'プロフィール編集'
+        books: '本'
+        users: 'ユーザー'
+      user:
+        show: '登録情報'
+        edit: '登録情報編集'
       log_in: 'ログイン'
       log_out: 'ログアウト'
       sign_up: 'サインアップ'

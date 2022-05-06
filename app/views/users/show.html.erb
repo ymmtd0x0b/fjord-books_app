@@ -14,3 +14,11 @@
 
 <p><%= t User.human_attribute_name('self_introduction') %></p>
 <p><%= @user.self_introduction %></p>
+
+<div>
+  <%= link_to t('views.common.back'), :back %>
+  <% if @user == current_user %>
+   |
+  <%= link_to t('views.common.user.edit'), edit_user_registration_path %>
+  <% end %>
+</div>
