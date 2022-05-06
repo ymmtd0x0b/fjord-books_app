@@ -28,7 +28,7 @@
         <%= link_to t('views.common.user.show'), current_user %> |
         <%= link_to t('views.common.log_out'), destroy_user_session_path, method: :delete  %>
         <% else %>
-        <%= link_to t('views.common.sign_up'), new_user_registration_path  %> |
+        <%= link_to t('devise.shared.links.sign_up'), new_user_registration_path  %> |
         <%= link_to t('views.common.log_in'), new_user_session_path %>
         <% end %>
         </p>
