@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root to: 'books#index'
-  devise_for :users
+  devise_for :users, path_names: { sign_in: 'log_in', sign_out: 'log_out' }
   resources :books
   resources :users , only: [:index, :show]
 
