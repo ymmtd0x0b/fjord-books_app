@@ -54,8 +54,7 @@ User.create!(
   city: '新宿区西新宿',
   street: '２−８−１',
   building: '東京都庁ビル',
-  password: 'password',
-  confirmed_at: Time.now
+  password: 'password'
 )
 
 User.create!(
@@ -67,8 +66,7 @@ User.create!(
   city: '福岡市博多区',
   street: '東公園７−７',
   building: '',
-  password: 'password',
-  confirmed_at: Time.now
+  password: 'password'
 )
 
 User.create!(
@@ -80,8 +78,7 @@ User.create!(
   city: '大阪市',
   street: '中央区大手前2丁目',
   building: '',
-  password: 'password',
-  confirmed_at: Time.now
+  password: 'password'
 )
 
 30.times do |n|
@@ -94,8 +91,7 @@ User.create!(
     city: '',
     street: '',
     building: '',
-    password: 'password',
-    confirmed_at: Time.now
+    password: 'password'
   )
 end
 
