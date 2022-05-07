@@ -84,7 +84,7 @@ User.create!(
 30.times do |n|
   User.create!(
     name: Faker::Name.name,
-    email: "sample#{ n+1 }@sample.jp",
+    email: "sample#{n + 1}@sample.jp",
     self_introduction: Faker::Lorem.paragraph,
     prefecture: '',
     postal_code: '',
