@@ -1,19 +1,27 @@
-<p><%= t User.human_attribute_name('name') %></p>
-<p><%= @user.name %></p>
-
-<% if @user.id == current_user.id %>
-  <p><%= t User.human_attribute_name('email') %></p>
-  <p><%= @user.email %></p>
-
-  <p><%= t User.human_attribute_name('postal_code') %></p>
-  <p><%= @user.postal_code %></p>
-
-  <p><%= t 'views.common.address' %></p>
-  <p><%= "#{@user.prefecture} #{@user.city} #{@user.street} #{@user.building}" %></p>
-<% end %>
-
-<p><%= t User.human_attribute_name('self_introduction') %></p>
-<p><%= @user.self_introduction %></p>
+<table class="user_profile">
+  <tr>
+    <th><%= t User.human_attribute_name('name') %></th>
+    <td><%= @user.name %></td>
+  </tr>
+  <% if @user.id == current_user.id %>
+  <tr>
+    <th><%= t User.human_attribute_name('email') %></th>
+    <td><%= @user.email %></td>
+  </tr>
+  <tr>
+    <th><%= t User.human_attribute_name('postal_code') %></th>
+    <td><%= @user.postal_code %></td>
+  </tr>
+  <tr>
+    <th><%= t 'views.common.address' %></th>
+    <td><%= "#{@user.prefecture} #{@user.city} #{@user.street} #{@user.building}" %></td>
+  </tr>
+  <% end %>
+  <tr>
+    <th><%= t User.human_attribute_name('self_introduction') %></th>
+    <td><%= @user.self_introduction %></td>
+  </tr>  
+</table>
 
 <div>
   <%= link_to t('views.common.back'), :back %>

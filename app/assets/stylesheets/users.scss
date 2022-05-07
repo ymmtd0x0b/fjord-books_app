@@ -1,3 +1,14 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.user_profile th {
+  text-align: justify;
+  text-align-last: justify;
+  text-justify: inter-ideograph;
+  white-space: nowrap;
+}
+
+.delete_account {
+  margin-top: 50px;
+}
