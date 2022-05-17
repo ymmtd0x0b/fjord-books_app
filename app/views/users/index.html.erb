@@ -15,7 +15,7 @@
   <tbody>
     <% @users.each do |user| %>
       <tr class="users_index">
-        <td><%= image_tag user.image.variant(resize: '40' ,gravity: 'center', crop: '40x40').processed if user.image.attached? %></td>
+        <td><%= image_tag user.image.variant(resize: '40', gravity: 'center', crop: '40x40').processed if user.image.attached? %></td>
         <td><%= user.email %></td>
         <td><%= user.name %></td>
         <td><%= user.postal_code %></td>
