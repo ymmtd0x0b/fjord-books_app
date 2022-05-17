@@ -7,7 +7,7 @@
 
 <p>
   <strong><%= User.human_attribute_name(:image) %>:</strong>
-  <%= image_tag @user.image.variant(resize: '40' ,gravity: 'center', crop: '40x40').processed %>
+  <%= render 'image', user: @user %>
 </p>
 
 <p>
