@@ -6,6 +6,11 @@
 </p>
 
 <p>
+  <strong><%= User.human_attribute_name(:image) %>:</strong>
+  <%= render 'image', user: @user %>
+</p>
+
+<p>
   <strong><%= User.human_attribute_name(:name) %>:</strong>
   <%= @user.name %>
 </p>
