@@ -42,4 +42,57 @@ Book.create!(
   )
 end
 
+# ユーザーデータ
+User.destroy_all
+
+User.create!(
+  name: 'Ruby太郎',
+  email: 'ruby@sample.jp',
+  self_introduction: 'Ruby太郎です！！！',
+  postal_code: '163-8001',
+  prefecture: '東京都',
+  city: '新宿区西新宿',
+  street: '２−８−１',
+  building: '東京都庁ビル',
+  password: 'password'
+)
+
+User.create!(
+  name: 'Rails太郎',
+  email: 'rails@sample.jp',
+  self_introduction: 'Rails太郎です！！！',
+  postal_code: '812-8577',
+  prefecture: '福岡県',
+  city: '福岡市博多区',
+  street: '東公園７−７',
+  building: '',
+  password: 'password'
+)
+
+User.create!(
+  name: 'CSS太郎',
+  email: 'css@sample.jp',
+  self_introduction: 'CSS太郎です！！！',
+  postal_code: '540-8570',
+  prefecture: '大阪府',
+  city: '大阪市',
+  street: '中央区大手前2丁目',
+  building: '',
+  password: 'password'
+)
+
+30.times do |n|
+  User.create!(
+    name: Faker::Name.name,
+    email: "sample#{n + 1}@sample.jp",
+    self_introduction: Faker::Lorem.paragraph,
+    prefecture: '',
+    postal_code: '',
+    city: '',
+    street: '',
+    building: '',
+    password: 'password'
+  )
+end
+
 puts '初期データの投入が完了しました。' # rubocop:disable Rails/Output

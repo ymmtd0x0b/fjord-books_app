@@ -10,6 +10,30 @@
   </head>
 
   <body>
+    <header>
+      <% flash.each do |message_type, message| %>
+        <%= content_tag :div, message, class: message_type %>
+      <% end %>
+      <div>
+        <% if user_signed_in? %>
+        <%= t('views.common.contents_link') %>： 
+        <%= link_to t('views.common.index.books'), root_path  %> | 
+        <%= link_to t('views.common.index.users'), users_path %>
+        <% end %>
+      </div>
+      <div>
+        <p>
+        <% if user_signed_in? %>
+        <%= t 'views.common.logged_html', user: current_user.name %>
+        <%= link_to t('views.common.user.show'), current_user %> |
+        <%= link_to t('views.common.log_out'), destroy_user_session_path, method: :delete  %>
+        <% else %>
+        <%= link_to t('devise.shared.links.sign_up'), new_user_registration_path  %> |
+        <%= link_to t('views.common.log_in'), new_user_session_path %>
+        <% end %>
+        </p>
+      </div>
+    </header>
     <%= yield %>
   </body>
 </html>
