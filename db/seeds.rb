@@ -68,6 +68,14 @@ User.transaction do
   end
 end
 
+# フォロー関係の作成
+users = User.all
+first_user = User.first
+followings = users[2..49]
+followers = users[3..9]
+followings.each { |followed| user.follow(followed) }
+followers.each { |follower| follower.follow(first_user) }
+
 # 画像は生成も読み込みも時間がかかるので一部のデータだけにする
 User.order(:id).each.with_index(1) do |user, n|
   next unless (n % 8).zero?
