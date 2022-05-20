@@ -21,3 +21,7 @@ ja:
         followers: フォロワー
         followings_status: "%{count} フォロー中"
         followers_status: "%{count} フォロワー"
+  views:
+    common:
+      follow: フォロー
+      unfollow: フォロー解除

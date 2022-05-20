@@ -1,0 +1,8 @@
+<% if current_user.following?(user) %>
+  <%= button_to t('views.common.unfollow'), follow_path(current_user.active_follows.find_by(followed_id: user.id)), method: :delete %>
+<% else %>
+  <%= form_with(model: current_user.active_follows.build, local: true) do |f| %>
+    <%= hidden_field_tag :followed_id, user.id %>
+    <%= f.submit t('views.common.follow') %>
+  <% end %>
+<% end %>

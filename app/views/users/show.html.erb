@@ -8,8 +8,12 @@
 <p>
   <strong><%= User.human_attribute_name(:name) %>:</strong>
   <%= @user.name %>
-  <%= render partial: 'follow_status', locals: { user: @user } %>
+  <%= render 'follow_status', user: @user %>
 </p>
+
+<% unless @user == current_user %>
+  <%= render 'follow_form', user: @user %>
+<% end %>
 
 <p>
   <strong><%= User.human_attribute_name(:postal_code) %>:</strong>
