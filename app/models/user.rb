@@ -9,9 +9,11 @@ class User < ApplicationRecord
   # フォロー用アソシエーション
   has_many :active_follows, foreign_key: 'follower_id',
                             class_name: 'Follow',
+                            inverse_of: 'follower',
                             dependent: :destroy
   has_many :passive_follows, foreign_key: 'followed_id',
                              class_name: 'Follow',
+                             inverse_of: 'followed',
                              dependent: :destroy
   has_many :followings, through: :active_follows, source: :followed
   has_many :followers, through: :passive_follows, source: :follower
