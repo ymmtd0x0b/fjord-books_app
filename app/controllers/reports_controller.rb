@@ -2,7 +2,7 @@
 
 class ReportsController < ApplicationController
   before_action :set_report, only: %i[show edit update destroy]
-  before_action :check_user, only: %i[edit destroy]
+  before_action :confirmation_of_authority, only: %i[edit destroy]
 
   # GET /reports or /reports.json
   def index
@@ -57,5 +57,10 @@ class ReportsController < ApplicationController
   # Only allow a list of trusted parameters through.
   def report_params
     params.require(:report).permit(:title, :content, :user_id)
+  end
+
+  # リソースの所有者がログインユーザーと同じか確認
+  def confirmation_of_authority
+    redirect_to(root_path, alert: t('errors.messages.not_authorized')) unless Report.find(params[:id]).user == current_user
   end
 end
