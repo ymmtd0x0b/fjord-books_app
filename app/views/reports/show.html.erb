@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong><%= Report.human_attribute_name('title') %>:</strong>
   <%= @report.title %>
@@ -12,7 +10,7 @@
 
 <p>
   <strong><%= Report.human_attribute_name('user') %>:</strong>
-  <%= @report.creater %>
+  <%= @report.user.name_or_email %>
 </p>
 
 <p>
@@ -25,3 +23,10 @@
   <%= link_to t('views.common.destroy'), @report, method: :delete, data: { confirm: t('views.common.delete_confirm') } %> | 
 <% end %>
 <%= link_to t('views.common.back'), reports_path %>
+
+<div class="comment_form">
+  <%= render 'comments/form', commentable: @report %>
+</div>
+
+<%= render 'comments/comments', commentable: @report  %>
+

@@ -5,7 +5,5 @@ class Report < ApplicationRecord
   validates :title, presence: true
   validates :content, presence: true
 
-  def creater
-    user.name.empty? ? user.email : user.name
-  end
+  has_many :comments, as: :commentable, dependent: :destroy
 end

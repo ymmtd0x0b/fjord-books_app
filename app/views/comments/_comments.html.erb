@@ -1,0 +1,15 @@
+<div class="comment_list">
+  <% comments = commentable.comments.order(:created_at, :desc).page(params[:page]) %>
+  <% comments.each do |comment| %>
+    <p>
+      <%= comment.user.name_or_email %> / 
+      <%= l(comment.created_at) %>
+      <% if comment.user == current_user %>
+         / <%= link_to t('views.common.destroy'), report_comment_path(commentable, comment), method: :delete, data: { confirm: t('views.common.delete_confirm') } %>
+      <% end %>
+    </p>
+    <pre><%= comment.content %></pre>
+  <% end %>
+</div>
+
+<%= paginate comments %>
