@@ -1,12 +1,12 @@
 <div class="comment_form">
-  <%= form_with(model: [commentable, Comment.new], local: true) do |f| %>
+  <%= form_with(model: [commentable, Comment.new]) do |form| %>
     <div class="field">
-      <%= f.label Comment.model_name.human %>
-      <%= f.text_area :content, size: "50x4", required: true %>
+      <%= form.label Comment.model_name.human %>
+      <%= form.text_area :content, size: "50x4", required: true %>
     </div>
-    <%= f.hidden_field :user_id, :value => current_user.id %>
+    <%= form.hidden_field :user_id, :value => current_user.id %>
     <div class="action">
-      <%= f.submit t('views.common.new') %>
+      <%= form.submit t('views.common.new') %>
     </div>
   <% end %>
 </div>
