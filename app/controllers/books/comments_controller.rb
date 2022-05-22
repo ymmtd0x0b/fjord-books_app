@@ -5,12 +5,12 @@ class Books::CommentsController < CommentsController
 
   def create
     super
-    redirect_to book_path(params[:book_id]), notice: 'コメントを投稿しました'
+    redirect_to book_path(params[:book_id]), notice: t('controllers.common.notice_create', name: Comment.model_name.human)
   end
 
   def destroy
     super
-    redirect_to book_path(params[:book_id])
+    redirect_to book_path(params[:book_id]), notice: t('controllers.common.notice_destroy', name: Comment.model_name.human)
   end
 
   private

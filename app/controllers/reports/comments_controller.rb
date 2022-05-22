@@ -5,12 +5,12 @@ class Reports::CommentsController < CommentsController
 
   def create
     super
-    redirect_to report_path(params[:report_id]), notice: 'コメントを投稿しました'
+    redirect_to report_path(params[:report_id]), notice: t('controllers.common.notice_create', name: Comment.model_name.human)
   end
 
   def destroy
     super
-    redirect_to report_path(params[:report_id])
+    redirect_to report_path(params[:report_id]), notice: t('controllers.common.notice_destroy', name: Comment.model_name.human)
   end
 
   private
