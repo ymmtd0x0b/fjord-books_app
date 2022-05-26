@@ -73,7 +73,7 @@ users = User.all
 first_user = User.first
 followings = users[2..49]
 followers = users[3..9]
-followings.each { |followed| user.follow(followed) }
+followings.each { |followed| first_user.follow(followed) }
 followers.each { |follower| follower.follow(first_user) }
 
 # 画像は生成も読み込みも時間がかかるので一部のデータだけにする
