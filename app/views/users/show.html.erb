@@ -8,11 +8,22 @@
 <p>
   <strong><%= User.human_attribute_name(:name) %>:</strong>
   <%= @user.name %>
-  <%= render 'follow_status', user: @user %>
+  <%= link_to t('views.follow.followings_count', count: @user.followings.count), followings_user_path(@user) %> | 
+  <%= link_to t('views.follow.followers_count', count: @user.followers.count), followers_user_path(@user) %>
 </p>
 
 <% unless @user == current_user %>
-  <%= render 'follow_form', user: @user %>
+  <% if current_user.following?(@user) %>
+    <%= form_with(model: current_user.active_follows.find_by(followed_id: @user.id), local:true, method: :delete) do |form| %>
+      <%= hidden_field_tag :user_id, @user.id %>
+      <%= form.submit t('views.common.unfollow') %>
+    <% end %>
+  <% else %>
+    <%= form_with(model: current_user.active_follows.build, local: true) do |form| %>
+      <%= hidden_field_tag :user_id, @user.id %>
+      <%= form.submit t('views.common.follow') %>
+    <% end %>
+  <% end %>
 <% end %>
 
 <p>
