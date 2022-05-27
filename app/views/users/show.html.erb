@@ -13,16 +13,9 @@
 </p>
 
 <% unless @user == current_user %>
-  <% if current_user.following?(@user) %>
-    <%= form_with(model: current_user.active_follows.find_by(followed_id: @user.id), local:true, method: :delete) do |form| %>
-      <%= hidden_field_tag :user_id, @user.id %>
-      <%= form.submit t('views.common.unfollow') %>
-    <% end %>
-  <% else %>
-    <%= form_with(model: current_user.active_follows.build, local: true) do |form| %>
-      <%= hidden_field_tag :user_id, @user.id %>
-      <%= form.submit t('views.common.follow') %>
-    <% end %>
+  <%= form_with(model: @follows, method: @method_type) do |form| %>
+    <%= hidden_field_tag :user_id, @user.id %>
+    <%= form.submit @follow_or_unfollow %>
   <% end %>
 <% end %>
 

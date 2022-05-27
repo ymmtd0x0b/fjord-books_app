@@ -7,6 +7,12 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @follows, @method_type, @follow_or_unfollow =
+      if current_user.following?(@user)
+        [current_user.active_follows.find_by(followed_id: @user.id), :delete, t('views.common.unfollow')]
+      else
+        [current_user.active_follows.build, :post, t('views.common.follow')]
+      end
   end
 
   def followings
