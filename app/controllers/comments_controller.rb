@@ -2,8 +2,9 @@
 
 class CommentsController < ApplicationController
   def create
-    @comment = @commentable.comments.new(comments_params)
-    @comment.save
+    comment = @commentable.comments.new(comments_params)
+    comment.user_id = current_user.id
+    comment.save
   end
 
   def destroy
@@ -14,6 +15,6 @@ class CommentsController < ApplicationController
   private
 
   def comments_params
-    params.require(:comment).permit(:content, :user_id)
+    params.require(:comment).permit(:content)
   end
 end

@@ -4,7 +4,6 @@
       <%= form.label Comment.model_name.human %>
       <%= form.text_area :content, size: "50x4", required: true %>
     </div>
-    <%= form.hidden_field :user_id, :value => current_user.id %>
     <div class="action">
       <%= form.submit t('views.common.new') %>
     </div>
