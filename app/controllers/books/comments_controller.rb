@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 class Books::CommentsController < CommentsController
-  before_action :set_commentable, only: %i[create destroy]
-  before_action :confirmation_of_authority, only: [:destroy]
+  before_action :set_commentable, only: :create
 
   def create
     super
