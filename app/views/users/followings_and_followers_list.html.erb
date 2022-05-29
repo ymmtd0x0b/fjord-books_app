@@ -1,0 +1,27 @@
+<h1><%= @title %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th><!-- avatar --></th>
+      <th><%= User.human_attribute_name(:name) %></th>
+      <th><!-- link to /users/id/show --></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td>
+          <% if user.avatar.attached? %>
+            <%= image_tag user.avatar.variant(resize_to_fill: [30, 30])%>
+          <% end %>
+        </td>
+        <td><%= user.name %></td>
+        <td><%= link_to t('views.common.show'), user %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @users %>

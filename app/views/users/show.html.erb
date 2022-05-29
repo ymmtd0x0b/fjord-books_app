@@ -8,7 +8,16 @@
 <p>
   <strong><%= User.human_attribute_name(:name) %>:</strong>
   <%= @user.name %>
+  <%= link_to t('views.follow.followings_count', count: @user.followings.count), followings_user_path(@user) %> | 
+  <%= link_to t('views.follow.followers_count', count: @user.followers.count), followers_user_path(@user) %>
 </p>
+
+<% unless @user == current_user %>
+  <%= form_with(model: @follows, method: @method_type) do |form| %>
+    <%= hidden_field_tag :user_id, @user.id %>
+    <%= form.submit @follow_or_unfollow %>
+  <% end %>
+<% end %>
 
 <p>
   <strong><%= User.human_attribute_name(:postal_code) %>:</strong>
