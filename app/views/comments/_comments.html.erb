@@ -1,6 +1,5 @@
 <div class="comment_list">
-  <% comments = commentable.comments.order(:created_at, :desc).page(params[:page]) %>
-  <% comments.each do |comment| %>
+  <% @comments.each do |comment| %>
     <p>
       <%= comment.user.name_or_email %> / 
       <%= l(comment.created_at) %>
@@ -12,4 +11,4 @@
   <% end %>
 </div>
 
-<%= paginate comments %>
+<%= paginate @comments %>
