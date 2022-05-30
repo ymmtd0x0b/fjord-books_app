@@ -1,9 +1,9 @@
 <div class="comment_list">
   <% @comments.each do |comment| %>
     <p>
-      <%= comment.user.name_or_email %> / 
+      <%= comment.user_name.empty? ? comment.user_email : comment.user_name %> / 
       <%= l(comment.created_at) %>
-      <% if comment.user == current_user %>
+      <% if comment.user_id == current_user.id %>
          / <%= link_to t('views.common.destroy'), [commentable, comment], method: :delete, data: { confirm: t('views.common.delete_confirm') } %>
       <% end %>
     </p>
