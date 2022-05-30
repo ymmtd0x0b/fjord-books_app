@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class ReportsController < ApplicationController
-  before_action :set_report, only: %i[show edit update destroy]
-  before_action :confirmation_of_authority, only: %i[edit destroy]
+  before_action :set_report, only: %i[show edit]
+  before_action :set_report_for_current_user, only: %i[update destroy]
 
   # GET /reports or /reports.json
   def index
@@ -18,7 +18,9 @@ class ReportsController < ApplicationController
   end
 
   # GET /reports/1/edit
-  def edit; end
+  def edit
+    redirect_to reports_path, alert: t('errors.messages.not_authorized') unless @report.user_id == current_user.id
+  end
 
   # POST /reports or /reports.json
   def create
@@ -60,8 +62,7 @@ class ReportsController < ApplicationController
     params.require(:report).permit(:title, :content)
   end
 
-  # リソースの所有者がログインユーザーと同じか確認
-  def confirmation_of_authority
-    redirect_to(root_path, alert: t('errors.messages.not_authorized')) unless Report.find(params[:id]).user == current_user
+  def set_report_for_current_user
+    @report = current_user.reports.find(params[:id])
   end
 end
