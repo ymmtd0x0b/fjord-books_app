@@ -6,12 +6,12 @@ class ReportsController < ApplicationController
 
   # GET /reports or /reports.json
   def index
-    @reports = Report.joins(:user).select('reports.*, users.name as user_name, users.email as user_email').order(:id).page(params[:page])
+    @reports = Report.preload(:user).order(:id).page(params[:page])
   end
 
   # GET /reports/1 or /reports/1.json
   def show
-    @comments = @report.comments.joins(:user).select('comments.*, users.name as user_name, users.email as user_email').order(:created_at, :desc).page(params[:page])
+    @comments = @report.comments.preload(:user).order(:created_at, :desc).page(params[:page])
   end
 
   # GET /reports/new

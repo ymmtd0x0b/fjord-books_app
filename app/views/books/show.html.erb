@@ -24,4 +24,4 @@
 <%= link_to t('views.common.back'), books_path %>
 
 <%= render 'comments/form', commentable: @book %>
-<%= render 'comments/comments', commentable: @book  %>
+<%= render partial: 'comments/comments', locals: {commentable: @book, comments: @comments} %>

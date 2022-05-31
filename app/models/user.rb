@@ -16,6 +16,10 @@ class User < ApplicationRecord
 
   has_many :comments, dependent: :destroy
 
+  def name_or_email
+    name.empty? ? email : name
+  end
+
   def following?(user)
     active_relationships.where(following_id: user.id).exists?
   end

@@ -12,7 +12,7 @@ class BooksController < ApplicationController
   # GET /books/1
   # GET /books/1.json
   def show
-    @comments = @book.comments.joins(:user).select('comments.*, users.name as user_name, users.email as user_email').order(:created_at, :desc).page(params[:page])
+    @comments = @book.comments.preload(:user).order(:created_at, :desc).page(params[:page])
   end
 
   # GET /books/new
