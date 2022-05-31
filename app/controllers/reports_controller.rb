@@ -2,7 +2,7 @@
 
 class ReportsController < ApplicationController
   before_action :set_report, only: %i[show edit]
-  before_action :set_report_for_current_user, only: %i[update destroy]
+  before_action :set_report_for_current_user, only: %i[edit update destroy]
 
   # GET /reports or /reports.json
   def index
@@ -20,9 +20,7 @@ class ReportsController < ApplicationController
   end
 
   # GET /reports/1/edit
-  def edit
-    redirect_to reports_path, alert: t('errors.messages.not_authorized') unless @report.user_id == current_user.id
-  end
+  def edit; end
 
   # POST /reports or /reports.json
   def create
