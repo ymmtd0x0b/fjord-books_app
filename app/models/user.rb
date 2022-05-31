@@ -12,6 +12,14 @@ class User < ApplicationRecord
 
   has_one_attached :avatar
 
+  has_many :reports, dependent: :destroy
+
+  has_many :comments, dependent: :destroy
+
+  def name_or_email
+    name.empty? ? email : name
+  end
+
   def following?(user)
     active_relationships.where(following_id: user.id).exists?
   end

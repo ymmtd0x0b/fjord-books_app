@@ -133,6 +133,7 @@ ja:
       too_long: は%{count}文字以内で入力してください
       too_short: は%{count}文字以上で入力してください
       wrong_length: は%{count}文字で入力してください
+      not_authorized: 権限がありません
     template:
       body: 次の項目を確認してください
       header:
@@ -201,9 +202,9 @@ ja:
   time:
     am: 午前
     formats:
-      default: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
+      default: "%Y年%m月%d日(%a) %H時%M分"
       long: "%Y/%m/%d %H:%M"
-      short: "%m/%d %H:%M"
+      short: "%Y年%m月%d日"
     pm: 午後
   views:
     common:
@@ -224,6 +225,9 @@ ja:
       previous: '前'
       next: '次'
       truncate: '...'
+    report:
+      new_report: 日報作成
+      edit_report: 日報編集
   layouts:
     application:
       menu: メニュー

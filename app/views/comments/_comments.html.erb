@@ -1,0 +1,14 @@
+<div class="comment_list">
+  <% comments.each do |comment| %>
+    <p>
+      <%= comment.user.name_or_email %> / 
+      <%= l(comment.created_at) %>
+      <% if comment.user_id == current_user.id %>
+         / <%= link_to t('views.common.destroy'), [commentable, comment], method: :delete, data: { confirm: t('views.common.delete_confirm') } %>
+      <% end %>
+    </p>
+    <pre><%= comment.content %></pre>
+  <% end %>
+</div>
+
+<%= paginate @comments %>

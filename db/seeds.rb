@@ -5,6 +5,7 @@ require 'open-uri'
 # queue_adapterを変更している理由とtransactionを使っている理由は下記URLを参照
 # https://bootcamp.fjord.jp/questions/779#answer_2262
 ActiveStorage::AnalyzeJob.queue_adapter = :inline
+ActiveStorage::PurgeJob.queue_adapter = :inline
 
 print '開発環境のデータをすべて削除して初期データを投入します。よろしいですか？[Y/n]: ' # rubocop:disable Rails/Output
 unless $stdin.gets.chomp == 'Y'
@@ -83,6 +84,39 @@ Relationship.destroy_all
 User.order(id: :desc).each do |user|
   User.where('id < ?', user.id).each do |other|
     user.follow(other)
+  end
+end
+
+# 最初の本にコメントを投稿
+book = Book.first
+10.times do
+  book.comments.create!(
+    content: Faker::Lorem.paragraph(sentence_count: 1),
+    user_id: rand(1..User.all.count)
+  )
+end
+
+# 日報を作成
+10.times do |n|
+  report =
+    Report.create!(
+      title: "日報#{n + 1}",
+      content: Faker::Lorem.paragraph(sentence_count: rand(1..3)),
+      user_id: rand(1..User.all.count)
+    )
+  3.times do
+    report.comments.create!(
+      content: Faker::Lorem.paragraph(sentence_count: 1),
+      user_id: rand(1..User.all.count)
+    )
+  end
+  next unless n == 9
+
+  72.times do
+    report.comments.create!(
+      content: Faker::Lorem.paragraph(sentence_count: 1),
+      user_id: rand(1..User.all.count)
+    )
   end
 end
 
