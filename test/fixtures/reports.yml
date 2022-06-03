@@ -1,6 +1,6 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-report_1:
+report_one:
   user: alice
   title: 日報１
   content: テストの課題に着手

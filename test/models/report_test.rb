@@ -4,7 +4,7 @@ require 'test_helper'
 
 class ReportTest < ActiveSupport::TestCase
   def setup
-    @report = reports(:report_1)
+    @report = reports(:report_one)
     @alice = users(:alice)
     @bob = users(:bob)
   end

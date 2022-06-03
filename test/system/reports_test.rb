@@ -4,7 +4,7 @@ require 'application_system_test_case'
 
 class ReportsTest < ApplicationSystemTestCase
   setup do
-    @report = reports(:report_1)
+    @report = reports(:report_one)
 
     visit root_url
     fill_in 'Eメール', with: 'alice@example.com'
@@ -17,36 +17,34 @@ class ReportsTest < ApplicationSystemTestCase
     assert_selector 'h1', text: '日報'
   end
 
-  # test 'creating a Report' do
-  #   visit reports_url
-  #   click_on 'New Report'
+  test 'creating a Report' do
+    visit reports_url
+    click_on '新規作成'
 
-  #   fill_in 'Memo', with: @report.memo
-  #   fill_in 'Title', with: @report.title
-  #   click_on 'Create Report'
+    fill_in 'タイトル', with: '日報２'
+    fill_in '内容', with: '新規作成のシステムテスト'
+    click_on '登録する'
 
-  #   assert_text 'Report was successfully created'
-  #   click_on 'Back'
-  # end
+    assert_text '日報が作成されました。'
+  end
 
-  # test 'updating a Report' do
-  #   visit reports_url
-  #   click_on 'Edit', match: :first
+  test 'updating a Report' do
+    visit reports_url
+    find(:xpath, '/html[1]/body[1]/table[1]/tbody[1]/tr[1]/td[5]/a[1]').click
 
-  #   fill_in 'Memo', with: @report.memo
-  #   fill_in 'Title', with: @report.title
-  #   click_on 'Update Report'
+    fill_in 'タイトル', with: '日報_編集'
+    fill_in '内容', with: '編集のシステムテスト'
+    click_button '更新する'
 
-  #   assert_text 'Report was successfully updated'
-  #   click_on 'Back'
-  # end
+    assert_text '日報が更新されました。'
+  end
 
-  # test 'destroying a Report' do
-  #   visit reports_url
-  #   page.accept_confirm do
-  #     click_on 'Destroy', match: :first
-  #   end
+  test 'destroying a Report' do
+    visit reports_url
+    page.accept_confirm do
+      find(:xpath, '/html[1]/body[1]/table[1]/tbody[1]/tr[1]/td[6]').click
+    end
 
-  #   assert_text 'Report was successfully destroyed'
-  # end
+    assert_text '日報が削除されました。'
+  end
 end
