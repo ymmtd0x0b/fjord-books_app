@@ -8,7 +8,7 @@ class UserTest < ActiveSupport::TestCase
     @she = users(:she)
   end
 
-  test '#na@me_or_email' do
+  test '#name_or_email' do
     foo = users(:foo)
     assert_equal 'foo@example.com', foo.name_or_email
 
