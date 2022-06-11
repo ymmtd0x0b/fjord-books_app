@@ -37,6 +37,7 @@ class ReportsTest < ApplicationSystemTestCase
     click_button '更新する'
 
     assert_text '日報が更新されました。'
+    assert_text '日報_編集'
   end
 
   test 'destroying a Report' do
@@ -46,5 +47,6 @@ class ReportsTest < ApplicationSystemTestCase
     end
 
     assert_text '日報が削除されました。'
+    assert_no_text '日報１'
   end
 end
