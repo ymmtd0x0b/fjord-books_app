@@ -32,12 +32,13 @@ class ReportsTest < ApplicationSystemTestCase
     visit reports_url
     find(:xpath, '/html[1]/body[1]/table[1]/tbody[1]/tr[1]/td[5]/a[1]').click
 
-    fill_in 'タイトル', with: '日報_編集'
-    fill_in '内容', with: '編集のシステムテスト'
+    fill_in 'タイトル', with: '日報_編集', fill_options: { clear: :backspace }
+    fill_in '内容', with: '編集のシステムテスト', fill_options: { clear: :backspace }
     click_button '更新する'
 
     assert_text '日報が更新されました。'
     assert_text '日報_編集'
+    assert_text '編集のシステムテスト'
   end
 
   test 'destroying a Report' do
